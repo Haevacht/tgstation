@@ -43,12 +43,12 @@
 	ChangeTurf(/turf/open/floor/plating)
 
 /turf/closed/wall/proc/break_wall()
-	var/obj/item/stack/sheet/builtin_sheet = new sheet_type(loc)
+	var/obj/item/stack/sheet/builtin_sheet = new sheet_type(src)
 	builtin_sheet.amount = 2
 	return (new /obj/structure/girder(src))
 
 /turf/closed/wall/proc/devastate_wall()
-	var/obj/item/stack/sheet/builtin_sheet = new sheet_type(loc)
+	var/obj/item/stack/sheet/builtin_sheet = new sheet_type(src)
 	builtin_sheet.amount = 2
 	new /obj/item/stack/sheet/metal(src)
 
@@ -173,7 +173,7 @@
 		if( WT.remove_fuel(0,user) )
 			user << "<span class='notice'>You begin slicing through the outer plating...</span>"
 			playsound(src, W.usesound, 100, 1)
-			if(do_after(user, slicing_duration/W.toolspeed, target = src))
+			if(do_after(user, slicing_duration*W.toolspeed, target = src))
 				if(!iswallturf(src) || !user || !WT || !WT.isOn() || !T)
 					return 1
 				if( user.loc == T && user.get_active_held_item() == WT )
