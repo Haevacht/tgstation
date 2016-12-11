@@ -406,6 +406,7 @@
 	item_color = "medical"
 	flash_protect = 0
 	armor = list(melee = 30, bullet = 5, laser = 10, energy = 5, bomb = 10, bio = 100, rad = 50, fire = 75, acid = 75)
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR //Makes you bald but this prevents clipping.
 	scan_reagents = 1
 
 /obj/item/clothing/suit/space/hardsuit/medical
@@ -507,7 +508,7 @@
 	armor = list(melee = 40, bullet = 50, laser = 50, energy = 25, bomb = 50, bio = 100, rad = 50, fire = 100, acid = 100)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR //we want to see the mask
-	heat_protection = HEAD						
+	heat_protection = HEAD
 	actions_types = list()
 
 /obj/item/clothing/head/helmet/space/hardsuit/captain/attack_self()
